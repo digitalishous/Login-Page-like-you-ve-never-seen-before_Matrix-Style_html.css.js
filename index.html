@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h2 id="followTheWhiteRabbit"></h2>
+
+    <div id="glitch"></div>
+   <video id="finalVideo" src="assets/video/matrixVideo.mp4"></video>
+
+    <!-- <video id="video"  src="assets/video/matrixCode.mp4"></video> -->
+
+    <img src="assets/img/whiteRabbitJumping.png" alt="white rabbit jumping" id="rabbit">
+
+    <div id="maze">
+
+        <h4>It's this way or the highway, so drag that red pill and don't hit the walls </h4>
+
+        <div class="wall" style="top:10px; left:0; width:480px; height:5px;"></div>
+        <div class="wall" style="top:10px; right:15px; width:5px; height: 430px;"></div>
+        <div class="wall" style="top:500px; right:15px; width:480px; height: 5px;"></div>
+        <div class="wall" style="top:75px; left:0; width:5px; height: 430px;"></div>
+        <div class="wall" style="top:75px; left:0; width:250px; height:5px;"></div>
+        <div class="wall" style="top:10px; left:300px; width:5px; height: 120px;"></div>
+        <div class="wall" style="top:130px; left:60px; width:300px; height: 5px;"></div>
+        <div class="wall" style="top:75px; right:100px; width:40px; height: 5px;"></div>
+        <div class="wall" style="top:75px; right:20px; width:40px; height: 5px;"></div>
+        <div class="wall" style="top:130px; left:60px; width:5px; height: 250px;"></div>
+        <div class="wall" style="top:380px; left:60px; width:50px; height: 5px;"></div>
+        <div class="wall" style="top:195px; left:110px; width:5px; height: 190px;"></div>
+        <div class="wall" style="top:130px; left:360px; width:5px; height:215px;"></div>
+        <div class="wall" style="top:75px; left:400px; width:5px; height: 310px;"></div>
+        <div class="wall" style="top:75px; left:440px; width:5px; height: 260px;"></div>
+        <div class="wall" style="top:195px; left:300px; width:5px; height: 100px;"></div>
+        <div class="wall" style="top:135px; left:250px; width:5px; height: 100px;"></div>
+        <div class="wall" style="top:195px; left:200px; width:5px; height: 100px;"></div>
+        <div class="wall" style="top:400px; left:440px; width:5px; height: 100px;"></div>
+        <div class="wall" style="top:290px; left:200px; width:5px; height: 150px;"></div>
+        <div class="wall" style="top:290px; left:200px; width:100px; height:5px;"></div>
+        <div class="wall" style="top:435px; left:0; width:370px; height:5px;"></div>
+        <div class="wall" style="top:380px; left:260px; width:140px; height:5px;"></div>
+
+
+        <label for="login">
+        <input type="button" value="login" id="login">
+        </label>
+
+        <div id="player"></div>
+
+<!--        this is the finish line spot-->
+        <div id="finish"></div>
+
+    </div>
+
+    <div class="loginScene">
+
+        <div id="loginCard">
+
+            <label for="username">
+            <input type="text" id="username" placeholder="Username" required>
+            </label>
+
+            <label for="password">
+                <input type="password" id="password" placeholder="Password" required>
+            </label>
+
+            <button id="loginButton">You finally get to log in</button>
+
+
+        </div>
+    </div>
+
+
+
+
+<script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+@import url('https://fonts.cdnfonts.com/css/white-rabbit-2');
+
+html{
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body{
+    font-family: 'White Rabbit', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: black;
+}
+
+h2{
+    color: #00FA00;
+    letter-spacing: 1px;
+    font-weight: 500;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+#rabbit{
+    width: 200px;
+    position: fixed;
+    top: 20%;
+    left: 30%;
+    opacity: 0;
+    transition: left 0.25s ease-out, top 0.25s ease-out;
+}
+
+#rabbit.hop{
+    animation: hop 0.25s ease;
+}
+
+@keyframes hop{
+    0%{ transform: translateY(0);}
+    50%{ transform: translateY(-20px);}
+    100%{ transform: translateY(0);}
+}
+
+/*MAZE SCENE*/
+#maze{
+    background: transparent;
+    margin: 0 auto;
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+
+
+
+    user-select: none; /* to avoid text getting highlighted when going through the maze */
+
+}
+
+.wall{
+    position: absolute;
+    background: #fff;
+    color: black;
+
+    /* setup for flying pieces */
+    opacity: 0;
+    transform: translate(0. 0) scale(0.5);
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+#maze{
+    opacity: 0;
+}
+
+h4 {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(0, 250, 0, 0.6);
+    position: absolute;
+    top: -20%;
+    left: 0;
+
+}
+
+#login{
+    position: absolute;
+    bottom: 10px;
+    left: 91%;
+    width: fit-content;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background: #000;
+    border: 2px solid #00FA00;
+    border-radius: 15px;
+    color: #fff;
+    cursor: pointer;
+}
+
+#player{
+    position: absolute;
+    width: 25px;
+    height: 13px;
+    background: red;
+    border-radius: 40%;
+    top: 30px;
+    left: 5px;
+    /*pointer-events: none; !* 👈 VERY IMPORTANT *!*/
+    box-shadow:
+            0 0 10px rgba(255, 0, 0, 0.7),
+            inset 0 0 5px rgba(255, 255, 255, 0.5);
+
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#player.active{
+    opacity: 1;
+    transform: scale(1);
+}
+
+#finish{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    bottom: 0;
+    right: 0;
+    background: transparent;
+}
+
+.loginScene{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    width: clamp(280px, 60%, 400px);
+    height: 60vh;
+    border-radius: 20px;
+
+    /* this is for the cool border animation effect */
+    background: repeating-conic-gradient(from var(--a), #00FA00 0%, #00FA00 5%, transparent 5%, transparent 40%, #00FA00 50%);
+    animation: animate 4s linear infinite;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    visibility: hidden;
+    pointer-events: none;
+
+}
+
+.loginScene.active{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    transition: opacity 3s ease-in-out;
+}
+
+@property --a{
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@keyframes animate{
+    0%
+    {--a: 0deg;}
+    100%
+    {--a: 360deg;}
+}
+
+.loginScene::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 20px;
+}
+
+.loginScene::after{
+    content: "";
+    position: absolute;
+    inset: 8px;
+    background-color: black;
+    border-radius: 20px;
+    border: 5px solid transparent;
+}
+
+
+#loginCard{
+    height: 100%;
+    width: 100%;
+    border: 2px solid #00FA00;
+    border-radius: 20px;
+    box-shadow: 0 3px 20px rgba(0, 250, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 4rem;
+    margin: 2rem 0 2rem 0;
+    z-index: 999;
+}
+
+input{
+    width: 90%;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 1px solid rgba(0, 250, 0, 0.5);
+    outline: none;
+    color: #fff;
+    margin-left: 5%;
+    background: #000000;
+    font-family: 'White Rabbit', sans-serif;
+    position: relative;
+}
+
+input:focus, input:valid{
+    border-bottom: 1.5px solid rgb(0, 250, 0);
+}
+
+#loginButton{
+    background: #000000;
+    padding: 0.8rem 1rem;
+    border: 1px solid #00FA00;
+    border-radius: 20px;
+    color: rgba(246, 242, 242, 0.52);
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 2rem;
+    cursor: pointer;
+    font-family: 'White Rabbit', sans-serif;
+}
+
+/* #theReal{
+    width: 130%;
+    height: 140%;
+    position: relative;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden; 
+}
+
+label{
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+input:focus+label, input:valid+label{
+    top: -10px;
+} */
+
+#finalVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    visibility: hidden;
+    z-index: 999;
+    transition: visibility 2s ease;
+}
+
+/* the glitch effect */
+
+#glitch {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+#glitch.active {
+    animation: glitchFlash 2s steps(10) forwards;
+}
+
+@keyframes glitchFlash {
+    0%   { opacity: 0; transform: translate(0,0); }
+    10%  { opacity: 1; background: #00ff0046; transform: translate(-5px, 5px); }
+    20%  { opacity: 0; transform: translate(5px, -5px); }
+    30%  { opacity: 1; background: rgb(59, 59, 59); transform: translate(-3px, 3px); }
+    40%  { opacity: 0; }
+    50%  { opacity: 1; background: #00ff0034; }
+    60%  { opacity: 0; transform: translate(5px, -5px); }
+    70%  { opacity: 1; transform: translate(2px, -2px); }
+    80%  { opacity: 0; }
+    100% { opacity: 0; transform: translate(0,0); }
+}
