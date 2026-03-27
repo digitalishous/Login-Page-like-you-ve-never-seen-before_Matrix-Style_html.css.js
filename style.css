@@ -1,3 +1,4 @@
+/* GENERAL STYLING */
 @import url('https://fonts.cdnfonts.com/css/white-rabbit-2');
 
 html{
@@ -19,7 +20,9 @@ body{
     overflow: hidden;
     background: black;
 }
+/* GENERAL STYLING - END*/
 
+/* FOLLOW THE WHITE RABBIT SCENE */
 h2{
     color: #00FA00;
     letter-spacing: 1px;
@@ -47,6 +50,8 @@ h2{
     50%{ transform: translateY(-20px);}
     100%{ transform: translateY(0);}
 }
+/* FOLLOW THE WHITE RABBIT SCENE - END*/
+
 
 /*MAZE SCENE*/
 #maze{
@@ -135,7 +140,9 @@ h4 {
     right: 0;
     background: transparent;
 }
+/* MAZE SCENE - END*/
 
+/* LOGIN SCENE */
 .loginScene{
     display: flex;
     justify-content: center;
@@ -241,26 +248,10 @@ input:focus, input:valid{
     cursor: pointer;
     font-family: 'White Rabbit', sans-serif;
 }
+/* LOGIN SCENE -END */
 
-/* #theReal{
-    width: 130%;
-    height: 140%;
-    position: relative;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    visibility: hidden; 
-}
 
-label{
-    transition: 0.3s;
-    pointer-events: none;
-}
-
-input:focus+label, input:valid+label{
-    top: -10px;
-} */
-
+/* FINAL SCENE */
 #finalVideo {
     position: fixed;
     top: 0;
@@ -273,33 +264,3 @@ input:focus+label, input:valid+label{
     transition: visibility 2s ease;
 }
 
-/* the glitch effect */
-
-#glitch {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: black;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 10000;
-}
-
-#glitch.active {
-    animation: glitchFlash 2s steps(10) forwards;
-}
-
-@keyframes glitchFlash {
-    0%   { opacity: 0; transform: translate(0,0); }
-    10%  { opacity: 1; background: #00ff0046; transform: translate(-5px, 5px); }
-    20%  { opacity: 0; transform: translate(5px, -5px); }
-    30%  { opacity: 1; background: rgb(59, 59, 59); transform: translate(-3px, 3px); }
-    40%  { opacity: 0; }
-    50%  { opacity: 1; background: #00ff0034; }
-    60%  { opacity: 0; transform: translate(5px, -5px); }
-    70%  { opacity: 1; transform: translate(2px, -2px); }
-    80%  { opacity: 0; }
-    100% { opacity: 0; transform: translate(0,0); }
-}

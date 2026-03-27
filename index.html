@@ -9,7 +9,6 @@
 
     <h2 id="followTheWhiteRabbit"></h2>
 
-    <div id="glitch"></div>
    <video id="finalVideo" src="assets/video/matrixVideo.mp4"></video>
 
     <!-- <video id="video"  src="assets/video/matrixCode.mp4"></video> -->
@@ -18,8 +17,9 @@
 
     <div id="maze">
 
-        <h4>It's this way or the highway, so drag that red pill and don't hit the walls </h4>
+        <h4>It's this way or the highway, so take the red pill and don't hit the walls </h4>
 
+        <!-- MAZE CONSTRUCTION ALL DONE IN HTML -->
         <div class="wall" style="top:10px; left:0; width:480px; height:5px;"></div>
         <div class="wall" style="top:10px; right:15px; width:5px; height: 430px;"></div>
         <div class="wall" style="top:500px; right:15px; width:480px; height: 5px;"></div>
@@ -43,19 +43,22 @@
         <div class="wall" style="top:290px; left:200px; width:100px; height:5px;"></div>
         <div class="wall" style="top:435px; left:0; width:370px; height:5px;"></div>
         <div class="wall" style="top:380px; left:260px; width:140px; height:5px;"></div>
+        <!-- MAZE CONSTRUCTION - END -->
 
 
         <label for="login">
         <input type="button" value="login" id="login">
         </label>
 
+        <!-- this is the red pill shaped player's cursor -->
         <div id="player"></div>
 
-<!--        this is the finish line spot-->
+        <!--this is the finish line spot where js will trigger next scene-->
         <div id="finish"></div>
 
     </div>
 
+    <!-- LOGIN SCENE -->
     <div class="loginScene">
 
         <div id="loginCard">
@@ -69,7 +72,7 @@
             </label>
 
             <button id="loginButton">You finally get to log in</button>
-
+    <!-- LOGIN SCENE -END -->
 
         </div>
     </div>
